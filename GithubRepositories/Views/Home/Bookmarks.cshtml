@@ -1,0 +1,19 @@
+﻿@using GithubRepositories.Models
+@{
+    ViewBag.Title = "Bookmarks";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<SearchResultItem>
+<div class="results clearfix">
+    @if (Model != null)
+    {
+        foreach (SearchResultItem item in Model)
+        {
+            <div class="result-item" data-id="@item.id">
+                <div class="res-name">@item.name</div>
+                <img src="@item.owner.avatar_url" class="img-responsive" alt=@item.name/>
+            </div>
+        }
+    }
+</div>

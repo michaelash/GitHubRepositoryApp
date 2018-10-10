@@ -1,0 +1,98 @@
+﻿body {
+    padding:20px 0;
+}
+
+@media (min-width: 576px)
+{
+    body
+    {
+        padding:50px 0 20px 0;
+    }
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.book-lnk
+{
+    display:block;
+    margin-bottom:15px;
+}
+
+.res-btn
+{
+    display: block;
+    margin-top: 10px;
+    position: absolute;
+    bottom: 10px;
+}
+
+.search-page .top
+{
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+}
+
+.search-page .results
+{
+    margin: 15px 0 20px 0;
+}
+
+.result-item
+{
+    float: left;
+    width:100%;
+    margin-bottom: 30px;
+    height:auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: relative;
+}
+
+@media (min-width: 576px)
+{
+    .result-item
+    {
+        width: 46%;
+        margin: 0 10px 20px 10px;
+    }
+}
+
+@media (min-width: 1200px)
+{
+    .result-item
+    {
+        width: 255px;
+        margin: 0 15px 30px 15px;
+        height: 316px;
+    }
+}
+
+.res-name
+{
+    margin-bottom: 5px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.pagination-container
+{
+    text-align:center;
+}

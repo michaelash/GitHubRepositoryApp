@@ -1,0 +1,45 @@
+﻿@using GithubRepositories.Models
+@using GithubRepositories.ViewModels
+@model StaticPagedList<GalleryItemVm>
+@using X.PagedList.Mvc;
+@using X.PagedList;
+
+<div class="search-page">
+    <div class="top row">
+        <div class="col-md-7">
+            @Html.ActionLink("Bookmarks", "Bookmarks", "Home", new { @class = "book-lnk" })
+        </div>
+        <div class="col-md-5">
+            <div class="frm-wrp">
+                @using (Html.BeginForm("Index", "Home", FormMethod.Get, new { @class = "repo-form form-inline" }))
+                {
+                    <div class="form-group">
+                        <label for="term">Search Repository</label>
+                        @Html.TextBox("term", (string)ViewBag.term, new { @class = "form-control" })
+                    </div>
+                    <input type="submit" value="Search" class="btn btn-primary" />
+                }
+            </div>
+        </div>
+    </div>
+    <div class="results clearfix">
+        @if (Model != null)
+        {
+            foreach (GalleryItemVm item in Model)
+            {
+        <div class="result-item" data-id="@item.Id">
+            <div class="res-name">@item.Name</div>
+            <img src="@item.ImageUrl" alt="@item.Name" class="img-responsive" />
+            <button type="button" class="res-btn @Html.Raw(item.InSession?"del-bk":"add-bk")">
+            @Html.Raw(item.InSession? "Remove Bookmark" : "Add Bookmark")</button>
+        </div>
+            }
+        }
+    </div>
+    @if (Model != null && Model.Count > 0)
+    {
+        @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page = page, term = ViewBag.term, type = "pager" }))
+    }
+</div>
+
+
